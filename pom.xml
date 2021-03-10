@@ -73,6 +73,8 @@
                                         <exclude>*Test</exclude>
                                         <exclude>get*</exclude>
                                         <exclude>set*</exclude>
+                                        <exclude>*hashCode*</exclude>
+                                        <exclude>*equals*</exclude>
                                     </excludes>
                                     <limits>
                                         <limit>

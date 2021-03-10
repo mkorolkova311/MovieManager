@@ -8,42 +8,43 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class MovieItem {
-
     private int movieId;
     private String movieName;
-    private String movieType;
-    private String picture;
+    private int movieTypeId;
+    private int pictureId;
+
 
     public int getMovieId() {
         return movieId;
-    }
-
-    public String getMovieName() {
-        return movieName;
-    }
-
-    public String getMovieType() {
-        return movieType;
     }
 
     public void setMovieId(int movieId) {
         this.movieId = movieId;
     }
 
+    public String getMovieName() {
+        return movieName;
+    }
+
     public void setMovieName(String movieName) {
         this.movieName = movieName;
     }
 
-    public void setMovieType(String movieType) {
-        this.movieType = movieType;
+    public int getMovieTypeId() {
+        return movieTypeId;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setMovieTypeId(int movieTypeId) {
+        this.movieTypeId = movieTypeId;
     }
 
-    public String getPicture() {
-        return picture;
+    public int getPictureId() {
+        return pictureId;
     }
+
+    public void setPictureId(int pictureId) {
+        this.pictureId = pictureId;
+    }
+
 
 }

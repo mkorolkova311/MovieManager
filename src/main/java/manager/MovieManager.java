@@ -15,9 +15,14 @@ public class MovieManager {
         items = tmp;
     }
 
-    public MovieItem[] getAll() {
-        MovieItem[] result = new MovieItem[items.length];
-        for (int i = 0; i < result.length; i++){
+    public MovieItem[] getlast10() {
+        int a = 10;
+        if  (items.length < 10) {
+            a = items.length;
+        }
+        MovieItem[] result = new MovieItem[a];
+
+        for (int i = 0; i < a; i++){
             int index = items.length - i - 1;
             result[i] = items[index];
         }
