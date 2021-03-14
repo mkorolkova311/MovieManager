@@ -54,7 +54,7 @@ public class MovieManagerTest {
         manager.add(movieItem1);
         manager.add(movieItem2);
         manager.removeById(2);
-        assertEquals(1,1);
+        assertEquals(1,manager.getlast10().length);
 
 
 
