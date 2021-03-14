@@ -9,11 +9,10 @@ public class MovieManagerTest {
 
     @Test
     public void shouldMovieAddTest() {
-        MovieManager manager = new MovieManager();
+        MovieManager manager = new MovieManager(1);
         MovieItem movieItem = new MovieItem(1, "Titanic", 1, 1);
         manager.add(movieItem);
-
-        assertEquals(manager.getlast10()[0].getMovieName(), movieItem.getMovieName());
+        assertEquals(manager.getlastLimit()[0].getMovieName(), movieItem.getMovieName());
     }
     @Test
     public void shouldLast10Movies() {
@@ -40,24 +39,18 @@ public class MovieManagerTest {
         manager.add(movieItem8);
         manager.add(movieItem9);
         manager.add(movieItem10);
-
-        assertEquals(manager.getlast10().length, 10 );
-
+        assertEquals(manager.getlastLimit().length, 10 );
     }
 
     @Test
-
     public void shouldRemoveById() {
-        MovieManager manager = new MovieManager();
+        MovieManager manager = new MovieManager(2);
         MovieItem movieItem1 = new MovieItem(2, "KillBill", 2, 2);
         MovieItem movieItem2 = new MovieItem(3, "Charlie's Angels", 3, 3);
         manager.add(movieItem1);
         manager.add(movieItem2);
         manager.removeById(2);
-        assertEquals(1,manager.getlast10().length);
-
-
-
+        assertEquals(1,manager.getlastLimit().length);
     }
 }
 

@@ -1,9 +1,19 @@
 package manager;
 
 import domain.MovieItem;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@Data
 public class MovieManager {
     private MovieItem[] items = new MovieItem[0];
+    private int limit = 10;
+
+    public MovieManager(int limit) {
+        this.limit = limit;
+
+    }
 
     public void add(MovieItem item) {
         int length = items.length + 1;
@@ -15,9 +25,9 @@ public class MovieManager {
         items = tmp;
     }
 
-    public MovieItem[] getlast10() {
-        int a = 10;
-        if  (items.length < 10) {
+    public MovieItem[] getlastLimit() {
+        int a = limit;
+        if  (items.length < limit) {
             a = items.length;
         }
         MovieItem[] result = new MovieItem[a];
