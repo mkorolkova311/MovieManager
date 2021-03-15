@@ -4,6 +4,9 @@ import domain.MovieItem;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 @NoArgsConstructor
 @Data
 public class MovieManager {
@@ -18,7 +21,6 @@ public class MovieManager {
     public void add(MovieItem item) {
         int length = items.length + 1;
         MovieItem[] tmp = new MovieItem[length];
-
         System.arraycopy(items, 0, tmp, 0, items.length);
         int lastIndex = tmp.length - 1;
         tmp[lastIndex] = item;
@@ -26,17 +28,16 @@ public class MovieManager {
     }
 
     public MovieItem[] getlastLimit() {
-        int a = limit;
+        int factLen = limit;
         if  (items.length < limit) {
-            a = items.length;
+            factLen = items.length;
         }
-        MovieItem[] result = new MovieItem[a];
-
-        for (int i = 0; i < a; i++){
+        MovieItem[] result = new MovieItem[factLen];
+        for (int i = 0; i < factLen; i++){
             int index = items.length - i - 1;
             result[i] = items[index];
         }
-    return result;
+        return result;
     }
 
     public void removeById(int id){
@@ -50,5 +51,21 @@ public class MovieManager {
             }
         }
         items = tmp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MovieManager manager = (MovieManager) o;
+        return limit == manager.limit &&
+                Arrays.equals(items, manager.items);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(limit);
+        result = 31 * result + Arrays.hashCode(items);
+        return result;
     }
 }
