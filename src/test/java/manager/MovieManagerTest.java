@@ -25,11 +25,14 @@ public class MovieManagerTest {
         MovieItem movie3 = new MovieItem(4, "Beethoven", 4, 4);
         manager.add(movie0);
         manager.add(movie1);
+        MovieItem[] actual = manager.getlastLimit();
+        MovieItem[] expected1 = new MovieItem[]{movie1,movie0};
+        assertArrayEquals(actual, expected1);
         manager.add(movie2);
         manager.add(movie3);
-        MovieItem[] actual = manager.getlastLimit();
-        MovieItem[] expected = new MovieItem[]{movie3,movie2,movie1};
-        assertArrayEquals(actual, expected);
+        actual = manager.getlastLimit();
+        MovieItem[] expected2 = new MovieItem[]{movie3,movie2,movie1};
+        assertArrayEquals(actual, expected2);
     }
 
     @Test
